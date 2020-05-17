@@ -1,0 +1,25 @@
+{
+    "admin": [],
+    "blacklist": {
+        "u99592c22dc2987345fe396dc0f055929": true,
+        "ucddff77d8c0c74ecd7288275c1051ead": true
+    },
+    "bots": [],
+    "lv1": {},
+    "lv2": {},
+    "lv3": {},
+    "mimic": {
+        "copy": false,
+        "status": false,
+        "target": {}
+    },
+    "owners": [
+        "u371b01c87b09ba53eae508121e112218",
+        "u371b01c87b09ba53eae508121e112218",
+        "u371b01c87b09ba53eae508121e112218",
+        "u7f57dba565ffb2591917038fcd97cc6d"
+    ],
+    "reread": true,
+    "s": {},
+    "user": {}
+}
