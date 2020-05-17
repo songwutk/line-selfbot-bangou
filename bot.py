@@ -101,7 +101,7 @@ def sendMessageWithMention(to, mid):
 def sendMention(to, text="", mids=[]):
     arrData = ""
     arr = []
-    mention = "@zeroxyuuki "
+    mention = ""
     if mids == []:
         raise Exception("Invaliod mids")
     if "@!" in text:
@@ -243,7 +243,7 @@ def cTime_to_datetime(unixtime):
     return datetime.datetime.fromtimestamp(int(str(unixtime)[:len(str(unixtime))-3]))
 
 admin=[]
-owners=["u5a934d08f5abccc26d6afed8d8dd1a06","u5a934d08f5abccc26d6afed8d8dd1a06",clMID]
+owners=["","",clMID]
 #if clMID not in owners:
 #    python = sys.executable
 #    os.execl(python, python, *sys.argv)
@@ -544,7 +544,7 @@ def lineBot(op):
                 elif text.lower() == 'about':
                     try:
                         arr = []
-                        owner ="u3d07fc517427da2f8dff71630873ee4f"
+                        owner =""
                         creator = cl.getContact(owner)
                         contact = cl.getContact(clMID)
                         grouplist = cl.getGroupIdsJoined()
