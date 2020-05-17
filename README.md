@@ -1,3 +1,5 @@
+QR Out of date !!
+
 # line-selfbot-bangou
 pip3 install --upgrade pip
 pip3 install linepy
