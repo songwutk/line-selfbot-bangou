@@ -127,16 +127,16 @@ def sendMention(to, text="", mids=[]):
     cl.sendMessage(to, textx, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
 def helpmessage():
     helpMessage = """—〘 指令分類 〙—
-【Sn:Help】 查看指令面板
-【Help1】 查看系統指令
-【Help2】 查看機器設定
-【Help3】 查看資料訊息
-【Help4】 查看黑單功能
-【Help5】 查看群組功能
-【Help6】 查看其他功能
-【Help7】 查看踢人功能
-【Help8】 查看邀請功能
-—〘無名半垢感謝使用 〙—"""
+【Sn:Help】 Command Help 查看指令面板
+【Help1】 System Comm. 查看系統指令
+【Help2】 Machine settings. 查看機器設定
+【Help3】 Information. 查看資料訊息
+【Help4】 Blacklist func. 查看黑單功能
+【Help5】 Group func. 查看群組功能
+【Help6】 Other features. 查看其他功能
+【Help7】 kick func. 查看踢人功能
+【Help8】 Invite feature. 查看邀請功能
+— Thanks for use〘無名半垢感謝使用 〙—"""
     return helpMessage
 def helpmessagebot():
     helpMessageBOT = """♨━狀態━♨
@@ -216,16 +216,16 @@ def helpmessageatl():
     return helpMessageATL
 def helpmessagemin():
     helpMessageMIN = """♨━踢人━♨
- Nk @ 單、多踢
- Zk 踢出0字元
+ Nk Kick alot.@ 單、多踢
+ Zk Kick all. 踢出0字元
  Byeall翻群
  Ri @ 來回機票"""
     return helpMessageMIN
 def helpmessageadd():
     helpMessageADD = """♨━邀請━♨
- Botsadd @ 加入自動邀請
- Botsdel @ 取消自動邀請
- Botslist 自動邀請表
+ Botsadd Join invit. @ 加入自動邀請
+ Botsdel Cancel invit. @ 取消自動邀請
+ Botslist Inv list. 自動邀請表
  Join 自動邀請
  Inv (mid) 透過mid邀請
  Inv @ 標註多邀"""
@@ -256,12 +256,12 @@ def lineBot(op):
             print ("[ 5 ] NOTIFIED ADD CONTACT")
             if settings["autoAdd"] == True:
                 cl.findAndAddContactsByMid(op.param1)
-                cl.sendMessage(op.param1, "感謝您加我為好友w".format(str(cl.getContact(op.param1).displayName)))
+                cl.sendMessage(op.param1, "Thanks for add me friend.感謝您加我為好友w".format(str(cl.getContact(op.param1).displayName)))
         if op.type == 1:
             print ("[ 1 ] 個簽鎖定")
             if cl.getProfile().mid != admin:
                 if op.param1 == "16":
-                    _name = "✎﹏ 無名 Bøt 運行中...\n\n"
+                    _name = "✎﹏ Anonymous bot running 無名 Bøt 運行中...\n\n"
                     _name += "✔ʙᴏᴛ ʀᴜɴɴɪɴɢ.....\n\n"
                     _name += "✔已運行③⑨ʜʀ...\n\n"
                     _name += "✔ʙᴏᴛ ʀᴜɴɴɪɴɢᴀ ᴇᴠᴇʀᴅᴀʏ....\n\n"
@@ -290,7 +290,7 @@ def lineBot(op):
                 group = cl.getGroup(op.param1)
                 if settings["autoJoin"] == True:
                     cl.acceptGroupInvitation(op.param1)
-                    cl.sendMessage(op.param1,"☰☱☲☳自動入群☴☵☶☷\nSilent Bøt自動入群\n使用者：錒勛\nline://au/q/Ol8azIc66Lc29GyUwKEEhzAus3S5bvnW\n☰☱☲☳通知完畢☴☵☶☷")
+                    cl.sendMessage(op.param1,"☰☱☲☳ Auto join group 自動入群☴☵☶☷\nSilent Bøt自動入群\n使用者：錒勛\nline://au/q/Ol8azIc66Lc29GyUwKEEhzAus3S5bvnW\n☰☱☲☳通知完畢☴☵☶☷")
             elif settings["invprotect"] == True:
                 if op.param2 in admin or op.param2 in ban["bots"]:
                     pass
@@ -306,7 +306,7 @@ def lineBot(op):
                     pass
                 else:
                     cl.cancelGroupInvitation(op.param1, gInviMids)
-                    cl.sendMessage(op.param1,"被邀請者黑單中...")
+                    cl.sendMessage(op.param1,"Invitee Black List. 被邀請者黑單中...")
         if op.type == 15:
             contact1 = cl.getContact(op.param2)
             group = cl.getGroup(op.param1)
@@ -512,10 +512,10 @@ def lineBot(op):
                     ret_ += "\n［ 以上是速度測試 ］"
                     cl.sendReplyMessage(msg.id, to, str(ret_))
                 elif text.lower() == 'sp':
-                    cl.sendReplyMessage(msg.id, to,"查詢結果\n"+str(timeit.timeit('"-".join(str(n) for n in range(100))',number=1000)) + "秒")
+                    cl.sendReplyMessage(msg.id, to,"Find results. 查詢結果\n"+str(timeit.timeit('"-".join(str(n) for n in range(100))',number=1000)) + "秒")
                 elif text.lower() == 'save':
                     backupData()
-                    cl.sendReplyMessage(msg.id, to,"儲存設定成功!")
+                    cl.sendReplyMessage(msg.id, to,"Storage is successful. 儲存設定成功!")
                 elif text.lower() == 'restart':
                     cl.sendReplyMessage(msg.id, to, "重新啟動中...")
                     time.sleep(5)
@@ -534,7 +534,7 @@ def lineBot(op):
                     request = requests.get(url)
                     content = request.content
                     soup = BeautifulSoup(content, "html.parser")
-                    ret_ = "—YouTube搜尋結果—"
+                    ret_ = "—YouTube search result 搜尋結果—"
                     no = 0 + 1
                     for all_mv in soup.select(".yt-lockup-video"):
                          name = all_mv.select("a[rel='spf-prefetch']")
@@ -954,13 +954,13 @@ def lineBot(op):
                         gTicket = "https://line.me/R/ti/g/{}".format(str(cl.reissueGroupTicket(group.id)))
                     path = "http://dl.profile.line-cdn.net/" + group.pictureStatus
                     ret_ = "╔════[群組資料]"
-                    ret_ += "\n╠顯示名稱 : {}".format(str(group.name))
+                    ret_ += "\n╠顯示名稱 Name : {}".format(str(group.name))
                     ret_ += "\n╠群組ＩＤ : {}".format(group.id)
-                    ret_ += "\n╠群組作者 : {}".format(str(gCreator))
-                    ret_ += "\n╠成員數量 : {}".format(str(len(group.members)))
-                    ret_ += "\n╠邀請數量 : {}".format(gPending)
-                    ret_ += "\n╠群組網址 : {}".format(gQr)
-                    ret_ += "\n╠群組網址 : {}".format(gTicket)
+                    ret_ += "\n╠群組作者 Creator : {}".format(str(gCreator))
+                    ret_ += "\n╠成員數量 Members : {}".format(str(len(group.members)))
+                    ret_ += "\n╠邀請數量 Pending : {}".format(gPending)
+                    ret_ += "\n╠群組網址 QR : {}".format(gQr)
+                    ret_ += "\n╠群組網址 Ticket : {}".format(gTicket)
                     ret_ += "\n╚═══[完]"
                     cl.sendMessage(to, str(ret_))
                     cl.sendImageWithURL(to, path)
@@ -1099,13 +1099,13 @@ def lineBot(op):
                         gTicket = "https://cl.me/R/ti/g/{}".format(str(cl.reissueGroupTicket(group.id)))
                     path = "http://dl.profile.line-cdn.net/" + group.pictureStatus
                     ret_ = "[ Group Info ]"
-                    ret_ += "\n 群組名稱 : {}".format(str(group.name))
+                    ret_ += "\n 群組名稱 Group name : {}".format(str(group.name))
                     ret_ += "\n 群組 Id : {}".format(group.id)
-                    ret_ += "\n 創建者 : {}".format(str(gCreator))
-                    ret_ += "\n 群組人數 : {}".format(str(len(group.members)))
-                    ret_ += "\n 邀請中 : {}".format(gPending)
-                    ret_ += "\n 網址狀態 : {}".format(gQr)
-                    ret_ += "\n 群組網址 : {}".format(gTicket)
+                    ret_ += "\n 創建者 Creator : {}".format(str(gCreator))
+                    ret_ += "\n 群組人數 Members : {}".format(str(len(group.members)))
+                    ret_ += "\n 邀請中 Pending : {}".format(gPending)
+                    ret_ += "\n 網址狀態 QR : {}".format(gQr)
+                    ret_ += "\n 群組網址 Ticket : {}".format(gTicket)
                     ret_ += "\n[ 完 ]"
                     cl.sendReplyMessage(msg.id, to, str(ret_))
                     cl.sendImageWithURL(to, path)
